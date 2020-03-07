@@ -1,12 +1,12 @@
 /**
- * @class Customer
+ * @class Plan
  *  Customer resource
  * {@link https://github.com/sheghun/paystack2}
  *    **********
  *
  */
-class Customer {
-    static endpoint = '/customer';
+class Plan {
+    static endpoint = '/plan';
 
     static async create() {}
 
@@ -15,6 +15,4 @@ class Customer {
     static async fetch() {}
 
     static async update() {}
-
-    static async whiteBlacklist() {}
 }
