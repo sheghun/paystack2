@@ -2,11 +2,11 @@ import axios from 'axios';
 import Transaction from './resources/transaction';
 /**
  * @class Paystack
- * @author sheghun {@link https://github.com/sheghun}
+ *
  * Paystack wrapper for communicating with the  paystack's api supports both v1 and v2
  * {@link https://github.com/sheghun/paystack2}
  *    **********
- *
+ *  contributors    sheghun {@link https://github.com/sheghun}
  */
 class Paystack {
     transaction = Transaction;
