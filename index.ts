@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Transaction from './resources/transaction';
 /**
  * @class Paystack
  * @author sheghun {@link https://github.com/sheghun}
@@ -8,13 +9,16 @@ import axios from 'axios';
  *
  */
 class Paystack {
+    transaction = Transaction;
     /**
-     * @param {string} sk - secret key
+     * @param {string} secret_key - secret key
      *
      */
-    constructor(sk: string) {
-        axios.defaults.headers.Authorization = `Bearer ${sk}`;
+    constructor(secret_key: string) {
+        axios.defaults.headers.Authorization = `Bearer ${secret_key}`;
         axios.defaults.headers['Content-Type'] = 'application/json';
         axios.defaults.baseURL = 'https://api.paystack.co/';
     }
 }
+
+export default Paystack;
