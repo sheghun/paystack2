@@ -31,7 +31,7 @@ class Transaction {
      * Gets list of transactions
      * @param {TransListOptions} options
      */
-    static async list(options: TransListOptions) {
+    static async list(options: TransListOptions = {}) {
         return util.extractResponse(axios.get(`${this.endpoint}`, {params: options}));
     }
 
@@ -88,7 +88,7 @@ class Transaction {
      *  Total amount received on your account
      *  @param options
      */
-    static async transactionTotals(options: {from: string | Date; to: string | Date}) {
+    static async totals(options: {from?: string | Date; to?: string | Date} = {}) {
         return util.extractResponse(axios.get(`${this.endpoint}/totals`, {params: options}));
     }
 
@@ -125,13 +125,13 @@ interface TransOptions {
 }
 
 interface TransListOptions {
-    perPage: number;
-    page: number;
-    customer: number;
-    status: string;
-    from: string | Date;
-    to: string | Date;
-    amount: number;
+    perPage?: number;
+    page?: number;
+    customer?: number;
+    status?: string;
+    from?: string | Date;
+    to?: string | Date;
+    amount?: number;
 }
 
 interface ExportTransOptions {
