@@ -7,6 +7,8 @@ import Transaction from './resources/transaction';
  * {@link https://github.com/sheghun/paystack2}
  *    **********
  *  contributors    sheghun {@link https://github.com/sheghun}
+ *
+ *  {@link https://https://developers.paystack.co/v2.0/reference API Docs}
  */
 class Paystack {
     transaction = Transaction;
