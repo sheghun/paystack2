@@ -1,6 +1,7 @@
 import axios from 'axios';
 import Transaction from './resources/transaction';
 import Customer from './resources/customer';
+import Subaccount from "./resources/subaccount";
 /**
  * @class Paystack
  *
@@ -14,6 +15,7 @@ import Customer from './resources/customer';
 class Paystack {
     transaction = Transaction;
     customer = Customer;
+    subaccount= Subaccount
     /**
      * @param {string} secret_key - secret key
      *

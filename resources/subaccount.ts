@@ -39,6 +39,8 @@ class Subaccount {
     }
 }
 
+export default Subaccount;
+
 interface CreateSubAccountOptions {
     business_name: string;
     settlement_bank: string;
