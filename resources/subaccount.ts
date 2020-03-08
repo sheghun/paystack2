@@ -1,3 +1,5 @@
+import axios from 'axios';
+import * as util from '../util';
 /**
  * @class Subaccount
  *  Subaccount resource
@@ -8,11 +10,43 @@
 class Subaccount {
     static endpoint = '/subaccount';
 
-    static async createSubaccount() {}
+    /**
+     * Creates a subaccount
+     */
+    static async create(options: CreateSubAccountOptions) {
+        return util.extractResponse(axios.post(`${this.endpoint}`, options));
+    }
 
-    static async listSubaccount() {}
+    /**
+     * Lists subaccount
+     */
+    static async list(options: {perPage?: number; page?: number} = {}) {
+        return util.extractResponse(axios.get(`${this.endpoint}`, {params: options}));
+    }
 
-    static async fetchSubaccount() {}
+    /**
+     * Get a subaccount
+     */
+    static async fetch(id_or_slug: string) {
+        return util.extractResponse(axios.get(`${this.endpoint}/${id_or_slug}`));
+    }
 
-    static async updateSubaccount() {}
+    /**
+     * Updates a subaccount
+     */
+    static async update(id_or_slug: string, options: Partial<CreateSubAccountOptions>) {
+        return util.extractResponse(axios.post(`${this.endpoint}/${id_or_slug}`, options));
+    }
+}
+
+interface CreateSubAccountOptions {
+    business_name: string;
+    settlement_bank: string;
+    account_number: string;
+    percentage_charge: number;
+    primary_contact_email?: string;
+    primary_contact_name?: string;
+    primary_contact_phone?: string;
+    metadata?: string;
+    settlement_schedule?: string;
 }
