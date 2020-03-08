@@ -61,3 +61,5 @@ class Customer {
         return util.extractResponse(axios.post(`${this.endpoint}/set_risk_action`, options));
     }
 }
+
+export default Customer;
