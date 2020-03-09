@@ -1,5 +1,27 @@
 /* eslint-disable camelcase */
 
+// Customers
+declare interface CustomerListOptions {
+    perPage?: number;
+    page?: number;
+}
+
+declare interface CustomerCreateOptions {
+    email: string;
+    first_name?: string;
+    last_name?: string;
+    phone?: string;
+    metadata?: string;
+}
+
+declare interface CustomerUpdateOptions {
+    first_name?: string;
+    last_name?: string;
+    phone?: string;
+    metadata?: string;
+}
+
+// Transaction
 declare interface TransOptions {
     amount: number;
     email: string;
