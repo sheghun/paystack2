@@ -43,3 +43,10 @@ declare interface PartialDebitTransOptions {
     at_least: number;
     reference: string;
 }
+
+declare interface CheckAuthorizationOptions {
+    authorization_code: string;
+    amount: number;
+    email: string;
+    currency?: string;
+}
