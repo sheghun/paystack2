@@ -1,3 +1,6 @@
+/* eslint-disable valid-jsdoc */
+/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable camelcase */
 import axios from 'axios';
 import * as util from '../util';
 /**
@@ -20,7 +23,7 @@ class Transaction {
     }
 
     /**
-     * Verifies a transactions
+     * Verify a transaction
      * @param {string} trans_ref - Transaction reference
      */
     static async verify(trans_ref: string) {
@@ -57,12 +60,7 @@ class Transaction {
      *  All mastercard and visa authorizations can be checked with this
      *  endpoint to know if they have funds for the payment you seek.
      */
-    static async checkAuthorization(options: {
-        authorization_code: string;
-        amount: number;
-        email: string;
-        currency?: string;
-    }) {
+    static async checkAuthorization(options: CheckAuthorizationOptions) {
         return util.extractResponse(axios.get(`${this.endpoint}/check_authorization`));
     }
 
@@ -110,47 +108,3 @@ class Transaction {
 }
 
 export default Transaction;
-
-interface TransOptions {
-    amount: number;
-    email: string;
-    reference: string;
-    callback_url?: string;
-    metadata?: string;
-    plan?: string;
-    invoice_limit?: number;
-    subaccount?: string;
-    transaction_charge?: number;
-    bearer?: string;
-}
-
-interface TransListOptions {
-    perPage?: number;
-    page?: number;
-    customer?: number;
-    status?: string;
-    from?: string | Date;
-    to?: string | Date;
-    amount?: number;
-}
-
-interface ExportTransOptions {
-    from?: string | Date;
-    to?: string | Date;
-    settled?: boolean;
-    payment_page?: number;
-    customer?: number;
-    currency?: string;
-    settlement?: number;
-    amount?: number;
-    status?: string;
-}
-
-interface PartialDebitTransOptions {
-    authorization: string;
-    currency: string;
-    amount: number;
-    email: string;
-    at_least: number;
-    reference: string;
-}

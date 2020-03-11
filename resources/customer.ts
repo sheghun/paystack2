@@ -1,3 +1,6 @@
+/* eslint-disable valid-jsdoc */
+/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable camelcase */
 import * as util from '../util';
 import axios from 'axios';
 /**
@@ -13,47 +16,33 @@ class Customer {
     /*
         Creates a new customer
      */
-    static async create(options: {
-        email: string;
-        first_name?: string;
-        last_name?: string;
-        phone?: string;
-        metadata?: string;
-    }) {
+    static async createCustomer(options: CustomerCreateOptions) {
         return util.extractResponse(axios.post(`${this.endpoint}`, {options}));
     }
     /*
-        Lists a customer
+        Lists all customer
      */
-    static async list(options: {perPage?: number; page?: number} = {}) {
+    static async listCustomer(options: CustomerListOptions = {}) {
         return util.extractResponse(axios.get(`${this.endpoint}`, {params: options}));
     }
     /*
         Fetches a customer
       */
-    static async fetch(email_or_id_or_customer_code: string) {
+    static async fetchCustomer(email_or_id_or_customer_code: string) {
         return util.extractResponse(axios.get(`${this.endpoint}/${email_or_id_or_customer_code}`));
     }
 
     /*
         Updates a customer info
      */
-    static async update(
-        id_or_customer_code: string,
-        options: {
-            first_name?: string;
-            last_name?: string;
-            phone?: string;
-            metadata?: string;
-        },
-    ) {
+    static async updateCustomer(id_or_customer_code: string, options: CustomerUpdateOptions) {
         return util.extractResponse(axios.post(`${this.endpoint}/${id_or_customer_code}`, options));
     }
 
     /*
         Whitelist or Blacklist a customer
      */
-    static async whiteOrBlacklist(
+    static async whiteOrBlacklistCustomer(
         id_or_customer_code: string,
         options: {risk_action: 'allow' | 'deny'},
     ) {
