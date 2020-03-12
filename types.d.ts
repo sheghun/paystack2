@@ -72,3 +72,8 @@ declare interface CheckAuthorizationOptions {
     email: string;
     currency?: string;
 }
+
+declare interface TransactionTotalsOptions {
+    from?: string | Date;
+    to?: string | Date;
+}
