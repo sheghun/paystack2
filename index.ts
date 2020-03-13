@@ -1,7 +1,12 @@
+/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable camelcase */
+/* eslint-disable valid-jsdoc */
 import axios from 'axios';
 import Transaction from './resources/transaction';
 import Customer from './resources/customer';
-import Subaccount from "./resources/subaccount";
+import Subaccount from './resources/subaccount';
+import Plan from './resources/plan';
+
 /**
  * @class Paystack
  *
@@ -15,7 +20,9 @@ import Subaccount from "./resources/subaccount";
 class Paystack {
     transaction = Transaction;
     customer = Customer;
-    subaccount= Subaccount
+    subaccount = Subaccount;
+    plan = Plan;
+
     /**
      * @param {string} secret_key - secret key
      *
