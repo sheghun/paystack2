@@ -77,3 +77,33 @@ declare interface TransactionTotalsOptions {
     from?: string | Date;
     to?: string | Date;
 }
+
+// Plan
+
+declare interface CreatePlanOptions {
+    name: string;
+    description?: string;
+    amount: number;
+    interval: string;
+    send_invoices?: boolean;
+    send_sms?: boolean;
+    currency?: string;
+    invoice_limit?: number;
+}
+
+declare interface ListPlanOptions {
+    perPage?: string;
+    page?: string;
+    interval?: string;
+    amount?: string;
+}
+
+declare interface UpdatePlanOptions {
+    name?: string;
+    description?: string;
+    amount?: string;
+    send_invoices?: boolean;
+    send_sms?: string;
+    currency?: string;
+    invoice_limit?: number;
+}
