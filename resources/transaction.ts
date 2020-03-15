@@ -15,7 +15,7 @@ class Transaction {
     static endpoint = '/transaction';
 
     /**
-     * Initialize a transaction
+     * Initialize transaction
      * @param {TransOptions} options
      */
     static async initialize(options: TransOptions & {channel?: string}) {
@@ -23,7 +23,7 @@ class Transaction {
     }
 
     /**
-     * Verify a transaction
+     * Verify transaction
      * @param {string} trans_ref - Transaction reference
      */
     static async verify(trans_ref: string) {
@@ -31,7 +31,7 @@ class Transaction {
     }
 
     /**
-     * Gets list of transactions
+     * List transactions
      * @param {TransListOptions} options
      */
     static async list(options: TransListOptions = {}) {
@@ -39,7 +39,7 @@ class Transaction {
     }
 
     /**
-     * Fetch a transaction
+     * Fetch transaction
      * @param {string} id
      */
     static async fetch(id: string) {
@@ -53,7 +53,9 @@ class Transaction {
     static async chargeAuthorization(
         options: TransOptions & {authorization_code: string; currency?: string},
     ) {
-        return util.extractResponse(axios.get(`${this.endpoint}/charge_authorization`));
+        return util.extractResponse(
+            axios.get(`${this.endpoint}/charge_authorization`, {params: options}),
+        );
     }
 
     /**
@@ -73,7 +75,7 @@ class Transaction {
     }
 
     /**
-     * Gets transaction timeline
+     * View transaction timeline
      * @param id_or_authorization_code
      */
     static async viewTimeline(id_or_authorization_code: string) {
@@ -86,7 +88,7 @@ class Transaction {
      *  Total amount received on your account
      *  @param options
      */
-    static async totals(options: {from?: string | Date; to?: string | Date} = {}) {
+    static async totals(options: TransactionTotalsOptions = {}) {
         return util.extractResponse(axios.get(`${this.endpoint}/totals`, {params: options}));
     }
 
