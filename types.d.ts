@@ -107,3 +107,29 @@ declare interface UpdatePlanOptions {
     currency?: string;
     invoice_limit?: number;
 }
+
+// Subaccount
+interface CreateSubAccountOptions {
+    business_name: string;
+    settlement_bank: string;
+    account_number: string;
+    percentage_charge: number;
+    primary_contact_email?: string;
+    primary_contact_name?: string;
+    primary_contact_phone?: string;
+    metadata?: string;
+    settlement_schedule?: string;
+}
+
+// Settlements
+
+interface FetchSettlementOptions {
+    from?: Date;
+    to?: Date;
+    subaccount?: string;
+}
+
+interface FetchSettlementTransactionsOptions {
+    perPage?: string;
+    page?: string;
+}
