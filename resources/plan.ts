@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/camelcase */
 /* eslint-disable camelcase */
 /* eslint-disable valid-jsdoc */
-import {extractResponse} from '../util';
+import * as util from '../util';
 import axios from 'axios';
 
 /**
@@ -16,22 +16,22 @@ class Plan {
 
     // Create Plan
     static async create(options: CreatePlanOptions) {
-        return extractResponse(axios.post(`${this.endpoint}`, {options}));
+        return util.extractResponse(axios.post(`${this.endpoint}`, {options}));
     }
 
     // List Plan
     static async list(options: ListPlanOptions = {}) {
-        return extractResponse(axios.get(`${this.endpoint}`, {params: options}));
+        return util.extractResponse(axios.get(`${this.endpoint}`, {params: options}));
     }
 
     // Fetch Plan
     static async fetch(id_or_plan_code: string) {
-        return extractResponse(axios.get(`${this.endpoint}/${id_or_plan_code}`));
+        return util.extractResponse(axios.get(`${this.endpoint}/${id_or_plan_code}`));
     }
 
     // Update Plan
     static async update(id_or_plan_code: string, options: UpdatePlanOptions) {
-        return extractResponse(axios.put(`${this.endpoint}/${id_or_plan_code}`, options));
+        return util.extractResponse(axios.put(`${this.endpoint}/${id_or_plan_code}`, options));
     }
 }
 
