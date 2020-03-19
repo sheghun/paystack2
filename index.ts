@@ -6,7 +6,7 @@ import Transaction from './resources/transaction';
 import Customer from './resources/customer';
 import Subaccount from './resources/subaccount';
 import Plan from './resources/plan';
-
+import Settlement from './resources/settlement';
 /**
  * @class Paystack
  *
@@ -22,6 +22,7 @@ class Paystack {
     customer = Customer;
     subaccount = Subaccount;
     plan = Plan;
+    settlement = Settlement;
 
     /**
      * @param {string} secret_key - secret key
