@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/camelcase */
+/* eslint-disable camelcase */
+/* eslint-disable valid-jsdoc */
 import axios from 'axios';
 import * as util from '../util';
 /**
@@ -35,20 +38,8 @@ class Subaccount {
      * Updates a subaccount
      */
     static async update(id_or_slug: string, options: Partial<CreateSubAccountOptions>) {
-        return util.extractResponse(axios.post(`${this.endpoint}/${id_or_slug}`, options));
+        return util.extractResponse(axios.put(`${this.endpoint}/${id_or_slug}`, options));
     }
 }
 
 export default Subaccount;
-
-interface CreateSubAccountOptions {
-    business_name: string;
-    settlement_bank: string;
-    account_number: string;
-    percentage_charge: number;
-    primary_contact_email?: string;
-    primary_contact_name?: string;
-    primary_contact_phone?: string;
-    metadata?: string;
-    settlement_schedule?: string;
-}
